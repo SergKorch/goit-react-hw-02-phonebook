@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import s from './phonebook.module.css';
-// import FeedbackOptions from './FeedbackOptions';
+import Form from './Form';
 // import Statistics from './Statistics';
 // import Section from './Section';
 // import Notification from './Notification';
@@ -10,8 +10,16 @@ export class App extends Component {
   state = {
     contacts: [],
     filter: '',
-    name: '',
-    number: ''
+  };
+  formData = data => {
+    console.log(data);
+  };
+  addContacts = data => {
+    const contacts = {
+      id: nanoid(),
+      data,
+    }
+    this.setState(prevState =>{ datas: [data, ...prevState.datas]})
   }
   // state = {
   //   contacts: [
@@ -24,37 +32,24 @@ export class App extends Component {
   //   name: '',
   //   number: ''
   // }
+
   render() {
     return (
-//       <div>
-//   <h1>Phonebook</h1>
-//   <ContactForm ... />
-//   <h2>Contacts</h2>
-//   <Filter ... />
-//   <ContactList ... />
-// </div>
+      //       <div>
+      //   <h1>Phonebook</h1>
+      //   <ContactForm ... />
+      //   <h2>Contacts</h2>
+      //   <Filter ... />
+      //   <ContactList ... />
+      // </div>
       <div className={s.phonebook}>
         <h1>Phonebook</h1>
-        <p>Name</p>
-        <input
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-        <p>Number</p>
-        <input
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-        <button type="button">Add contact</button>
+
+        <Form onSubmit={this.formData}/>
+        {/* <ContactList onSubmit={this.addContacts}/> */}
         <h2>Contacts</h2>
         <p>Find contacts by name</p>
-        <input/>
+        <input />
         <p>Jon Dou: 000-000-00-00</p>
         <p>Jon Dou: 000-000-00-00</p>
         <p>Jon Dou: 000-000-00-00</p>
