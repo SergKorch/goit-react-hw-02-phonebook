@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import ContactListItem from './ContactListItem';
 
- const ContactList = ({contacts}) => {
-  return (
+const ContactList = ({ contacts }) => {
+  console.log(contacts);
+  return contacts.length > 0 ? (
     <ul>
-      {contacts.map(({id, name, number}) => (
+      {contacts.map(({ id, name, number }) => (
         <ContactListItem key={id} nameContact={name} number={number} />
       ))}
     </ul>
+  ) : (
+    <p>No find</p>
   );
 };
 
