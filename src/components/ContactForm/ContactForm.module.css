@@ -11,14 +11,14 @@
   display: block;
   margin: 10px auto;
   width: 300px;
-  font-size: 13px;
+  font-size: 16px;
   padding: 6px 0 4px 10px;
   border: 1px solid #cecece;
   background: #f6f6f6;
   border-radius: 8px;
 }
 
-.phonebook button {
+.submitButton {
   text-decoration: none;
   display: block;
   padding: 10px 10px;
@@ -31,7 +31,7 @@
   color: #fe6637;
   transition: 0.2s ease-in-out;
 }
-.phonebook button:before {
+.submitButton:before {
   content: '';
   background: linear-gradient(
     90deg,
@@ -45,11 +45,11 @@
   left: -75px;
   transform: skewX(-45deg);
 }
-.phonebook button:hover {
+.submitButton:hover {
   background: #fe6637;
   color: #fff;
 }
-.phonebook button:hover:before {
+.submitButton:hover:before {
   left: 150px;
   transition: 0.5s ease-in-out;
 }

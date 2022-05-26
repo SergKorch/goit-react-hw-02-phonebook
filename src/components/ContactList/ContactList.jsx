@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import ContactListItem from './ContactListItem';
 
-const ContactList = ({ contacts }) => {
+
+const ContactList = ({ contacts, deleteContact }) => {
   console.log(contacts);
   return contacts.length > 0 ? (
     <ul>
       {contacts.map(({ id, name, number }) => (
-        <ContactListItem key={id} nameContact={name} number={number} />
+        <ContactListItem key={id} id={id} nameContact={name} number={number} deleteContact={deleteContact}/>
       ))}
     </ul>
   ) : (

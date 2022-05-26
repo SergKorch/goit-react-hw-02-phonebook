@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
+import s from './ContactForm.module.css';
 
 class ContactForm extends Component {
   state = {
@@ -55,7 +56,7 @@ class ContactForm extends Component {
             placeholder='Enter number here'
           />
         </label>
-        <button type="submit">Add contact</button>
+        <button className={s.submitButton} type="submit">Add contact</button>
       </form>
     );
   }
