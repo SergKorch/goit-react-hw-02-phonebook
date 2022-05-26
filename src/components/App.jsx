@@ -4,9 +4,7 @@ import Notiflix from 'notiflix';
 import s from './phonebook.module.css';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
-// import Section from './Section';
-// import Notification from './Notification';
-
+import Filter from './Filter';
 
 export class App extends Component {
   state = {
@@ -22,7 +20,7 @@ export class App extends Component {
   addContacts = ({ name, number }) => {
     this.setState(prevState => {
       const { contacts } = prevState;
-      console.log(contacts)
+      console.log(contacts);
       const isContact = contacts.find(contact => contact.name === name);
       if (isContact) {
         Notiflix.Notify.failure(`${name} is already in contact`);
@@ -41,16 +39,24 @@ export class App extends Component {
       }
     });
   };
+  changeFilter = event => {
+    this.setState({ filter: event.currentTarget.value });
+  };
 
   render() {
+    const { contacts, filter } = this.state;
+    const normalizeFilter = filter.toLocaleLowerCase()
+    const visibleContacts = contacts.filter(contact =>
+      contact.name.toLocaleLowerCase().includes(normalizeFilter)
+    );
     return (
       <div className={s.phonebook}>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContacts} />
         <h2>Contacts</h2>
         <p>Find contacts by name</p>
-        <input />
-        <ContactList contacts={this.state.contacts} />
+        <Filter filter={filter} onChange={this.changeFilter} />
+        <ContactList contacts={visibleContacts} />
       </div>
     );
   }
