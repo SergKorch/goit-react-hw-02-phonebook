@@ -11,7 +11,7 @@ const ContactList = ({ contacts, deleteContact }) => {
       ))}
     </ul>
   ) : (
-    <p>No find</p>
+    <p>No contacts</p>
   );
 };
 
