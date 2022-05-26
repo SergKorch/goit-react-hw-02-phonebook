@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const Filter = ({ filter,  onChange}) => {
   return (
       <div>
-    <label htmlFor="">
+    <label>
       <input type="text" value={filter} onChange={onChange}/>
     </label></div>
   );
