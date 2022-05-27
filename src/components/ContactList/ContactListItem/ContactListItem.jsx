@@ -4,7 +4,7 @@ import s from './ContactListItem.module.css';
 
 const ContactListItem = ({ id, nameContact, number, deleteContact }) => {
   return (
-    <li key={id}>
+    <li>
       <p>
         {nameContact}: {number}
       </p>

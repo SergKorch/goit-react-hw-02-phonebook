@@ -21,7 +21,7 @@ export class App extends Component {
     this.setState(prevState => {
       const { contacts } = prevState;
       console.log(contacts);
-      const isContact = contacts.find(contact => contact.name === name);
+      const isContact = contacts.find(contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase());
       if (isContact) {
         Notiflix.Notify.failure(`${name} is already in contact`);
         return contacts;
