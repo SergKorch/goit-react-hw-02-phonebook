@@ -1,16 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Filter = ({ filter,  onChange}) => {
+const Filter = ({ title, filter, onChange }) => {
   return (
-      <div>
-    <label>
-      <input type="text" value={filter} onChange={onChange}/>
-    </label></div>
+    <div>
+      <label>
+        <p>{title}</p>
+        <input type="text" value={filter} onChange={onChange} />
+      </label>
+    </div>
   );
 };
 
-{/* // ContactList.propTypes = { */}
-{/* //   options: PropTypes.arrayOf(PropTypes.string.isRequired),
-//   onLeaveFeedback: PropTypes.func.isRequired,
-// }; */}
+Filter.propTypes = {
+  title: PropTypes.string.isRequired,
+  filter: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
 export default Filter;
